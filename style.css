@@ -1,26 +1,148 @@
-@charset "UTF-8";
-
-html {
-  margin: 0;
-  padding:0;
-}
-
-body {
-  margin: 0;
-}
-
-/* ----------------------------------------
-ヘッダー
- ----------------------------------------*/
-h1{
-    color: orenge;
-}
-
-
-
-/* ----------------------------------------
-メイン
- ----------------------------------------*/
-
-
-
+/* リセット */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    color: #333;
+    background: #fff;
+  }
+  
+  /* ヘッダー */
+  .header {
+    width: 100%;
+    padding: 10px 5%;
+    display: flex;
+    justify-content: center;
+    background: #fff;
+  }
+  
+  .header-inner {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .logo img {
+    width: 160px;
+  }
+  
+  .nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+  }
+  
+  .nav a {
+    text-decoration: none;
+    color: #333;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+  
+  .cta a {
+    background: #f7a100;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background 0.3s;
+  }
+  
+  .cta a:hover {
+    background: #d88d00;
+  }
+  
+  /* ヒーロー */
+  .hero {
+    background: linear-gradient(135deg, #f7a100 0%, #fbb034 100%);
+    padding: 80px 5%;
+    position: relative;
+  }
+  
+  .hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .hero-text {
+    flex: 1 1 500px;
+    color: #333;
+  }
+  
+  .badge {
+    background: #f7a100;
+    color: white;
+    padding: 10px 20px;
+    display: inline-block;
+    border-radius: 50px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  .badge strong {
+    font-size: 32px;
+    display: block;
+  }
+  
+  .hero-text h1 {
+    font-size: 32px;
+    margin-bottom: 30px;
+  }
+  
+  .hero-button {
+    display: inline-block;
+    background: #f7a100;
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 18px;
+    margin-bottom: 20px;
+    transition: background 0.3s;
+  }
+  
+  .hero-button:hover {
+    background: #d88d00;
+  }
+  
+  .note {
+    font-size: 10px;
+    color: #666;
+    margin-top: 10px;
+  }
+  
+  .hero-image {
+    flex: 1 1 400px;
+    text-align: center;
+  }
+  
+  .hero-image img {
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  /* レスポンシブ */
+  @media (max-width: 768px) {
+    .hero-content {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .nav ul {
+      display: none;
+    }
+  }
+  
