@@ -1,260 +1,183 @@
+/* リセット */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-  }
-  
-  .header-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .logo {
-    display: flex;
-    align-items: center;
-  }
-  
-  .HeaderLogo__image {
-    max-height: 40px;
-    width: auto;
-    transition: opacity 0.3s ease;
-  }
-  
-  .HeaderLogo__image:hover {
-    opacity: 0.8;
-  }
-  
-  nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    margin: 0;
-    padding: 0;
-  }
-  
-  nav ul li a {
-    text-decoration: none;
-    color: #333;
-    font-size: 16px;
-    position: relative;
-    transition: color 0.3s ease;
-  }
-  
-  nav ul li a::after {
-    content: '';
+  font-family: "Helvetica Neue", sans-serif;
+}
+
+/* ヘッダー */
+.header {
+  background: #fff;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo img {
+  height: 40px;
+}
+
+.nav {
+  position: relative;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.nav-list li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.nav-list li a:hover {
+  color: #F79214;
+}
+
+.button {
+  background: #F79214;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  transition: background 0.3s;
+}
+
+.button:hover {
+  background: #F79214;
+}
+
+/* ハンバーガー */
+.menu-toggle {
+  display: none;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  width: 25px;
+  gap: 5px;
+}
+
+.hamburger span {
+  background: #333;
+  height: 3px;
+  width: 100%;
+  border-radius: 3px;
+}
+
+/* ファーストビュー */
+.FirstView {
+  position: relative;
+  margin-top: 80px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.FirstView__bg {
+  position: absolute;
+  z-index: -1;
+}
+
+.FirstView__left {
+  top: 0;
+  left: 0;
+}
+
+.FirstView__right {
+  bottom: 0;
+  right: 0;
+}
+
+.FirstView__fill {
+  top: 50%;
+  left: 0;
+  width: 100%;
+}
+
+.FirstView__main {
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+}
+
+.FirstView__container {
+  position: relative;
+  padding: 80px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.FirstView__content h2 {
+  font-size: 32px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.badge {
+  margin: 20px auto;
+}
+
+.FirstView__button {
+  display: inline-block;
+  background: #F79214;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-top: 30px;
+  transition: background 0.3s;
+}
+
+.FirstView__button:hover {
+  background: #F79214;
+}
+
+.FirstView__caption {
+  font-size: 12px;
+  color: #777;
+  margin-top: 20px;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .nav-list {
     position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -2px;
-    left: 0;
-    background-color: #f5a623;
-    transition: width 0.3s ease;
-  }
-  
-  nav ul li a:hover {
-    color: #f5a623;
-  }
-  
-  nav ul li a:hover::after {
-    width: 100%;
-  }
-  
-  nav ul li a.button {
-    background-color: #f5a623;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 25px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-  }
-  
-  nav ul li a.button:hover {
-    background-color: #d88e1f;
-    transform: scale(1.05);
-  }
-  
-  .FirstView {
-    position: relative;
-    height: 600px;
-    overflow: hidden;
-  }
-  
-  .FirstView__bg-image {
-    position: absolute;
-    z-index: 1;
-    transition: transform 0.3s ease;
-  }
-  
-  .FirstView__bg-image--left-rectangle {
-    top: 0;
-    left: 0;
-  }
-  
-  .FirstView__bg-image--left-rectangle:hover {
-    transform: translateX(10px);
-  }
-  
-  .FirstView__bg-image--right-rectangle {
-    bottom: 0;
+    top: 60px;
     right: 0;
-  }
-  
-  .FirstView__bg-image--right-rectangle:hover {
-    transform: translateX(-10px);
-  }
-  
-  .FirstView__bg-image--fill-rectangle {
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-    width: 100%;
-  }
-  
-  .FirstView__bg-image--fill-rectangle:hover {
-    transform: translateY(-50%) scale(1.02);
-  }
-  
-  .FirstView__bg-image--main-visual {
-    top: 0;
-    right: 0;
-    height: 100%;
-    z-index: 0;
-    transition: opacity 0.3s ease;
-  }
-  
-  .FirstView__bg-image--main-visual:hover {
-    opacity: 0.9;
-  }
-  
-  .FirstView__whole-image {
+    background: #fff;
+    flex-direction: column;
+    width: 200px;
     display: none;
-    transition: opacity 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    border-radius: 8px;
   }
-  
-  .FirstView__whole-image:hover {
-    opacity: 0.9;
-  }
-  
-  .FirstView__container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    height: 100%;
+
+  .menu-toggle:checked + .hamburger + .nav .nav-list {
     display: flex;
-    align-items: center;
-    position: relative;
-    z-index: 2;
   }
-  
-  .FirstViewContent {
-    max-width: 50%;
-    color: #333;
+
+  .hamburger {
+    display: flex;
   }
-  
-  .FirstViewContent__title {
-    font-size: 36px;
-    line-height: 1.5;
-    margin-bottom: 20px;
-    position: relative;
-    transition: color 0.3s ease;
-  }
-  
-  .FirstViewContent__title:hover {
-    color: #555;
-  }
-  
-  .FirstViewContent__badge-image {
-    position: absolute;
-    top: 50%;
-    right: -180px;
-    transform: translateY(-50%);
-    width: 150px;
-    height: 150px;
-    transition: transform 0.3s ease;
-  }
-  
-  .FirstViewContent__badge-image:hover {
-    transform: translateY(-50%) rotate(5deg);
-  }
-  
-  .FirstViewContent__button {
-    background-color: #f5a623;
-    color: #fff;
-    padding: 15px 30px;
-    border-radius: 25px;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-  }
-  
-  .FirstViewContent__button:hover {
-    background-color: #d88e1f;
-    transform: scale(1.05);
-  }
-  
-  .FirstViewContent__caption {
-    font-size: 12px;
-    color: #666;
-    margin-top: 10px;
-    line-height: 1.5;
-    transition: color 0.3s ease;
-  }
-  
-  .FirstViewContent__caption:hover {
-    color: #888;
-  }
-  
-  @media (max-width: 767px) {
-    .header-container {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    nav ul {
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 10px;
-    }
-  
-    .FirstView {
-      height: auto;
-      padding: 20px 0;
-    }
-  
-    .FirstView__bg-image--main-visual {
-      display: none;
-    }
-  
-    .FirstView__whole-image {
-      display: block;
-      width: 100%;
-      height: auto;
-      margin-top: 20px;
-    }
-  
-    .FirstView__container {
-      flex-direction: column;
-      text-align: center;
-    }
-  
-    .FirstViewContent {
-      max-width: 100%;
-    }
-  
-    .FirstViewContent__title {
-      font-size: 28px;
-    }
-  
-    .FirstViewContent__badge-image {
-      position: static;
-      transform: none;
-      margin: 20px auto;
-    }
-  
-    .FirstViewContent__badge-image:hover {
-      transform: rotate(5deg);
-    }
-  }
+}
