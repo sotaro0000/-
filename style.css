@@ -1,3 +1,247 @@
-.header{
-    color :orenge;
-}
+/* リセットCSS（簡易版） */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* body全体設定 */
+  body {
+    font-family: "Helvetica Neue", "Arial", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Meiryo", sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background: #fff;
+  }
+  
+  /* ヘッダー */
+  .potepancamp {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    position: relative;
+    background: #fff;
+    z-index: 10;
+  }
+  
+  .potepancamp1 {
+    display: flex;
+    align-items: center;
+  }
+  
+  .potepancamp2 img {
+    width: 160px;
+  }
+  
+  /* ハンバーガーアイコン */
+  .HeaderNavHamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+    width: 30px;
+    height: 25px;
+  }
+  
+  .HeaderNavHamburger__line {
+    height: 3px;
+    width: 100%;
+    background-color: #333;
+    margin: 4px 0;
+  }
+  
+  /* ナビゲーションメニュー */
+  .HeaderNavList {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+  }
+  
+  .HeaderNavListItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .HeaderNavListItem__link {
+    text-decoration: none;
+    color: #333;
+    font-size: 12px;
+    text-align: center;
+  }
+  
+  .HeaderNavListItem__button {
+    padding: 8px 16px;
+    background-color: #f79214;
+    color: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+  }
+  
+  /* ファーストビュー */
+  .FirstView {
+    position: relative;
+    overflow: hidden;
+    padding: 50px 0;
+  }
+  
+  .FirstView__bg-image {
+    position: absolute;
+    z-index: 1;
+  }
+  
+  .FirstView__bg-image--left-rectangle {
+    top: 0;
+    left: 0;
+    width: 120px;
+  }
+  
+  .FirstView__bg-image--right-rectangle {
+    bottom: 0;
+    right: 0;
+    width: 100px;
+  }
+  
+  .FirstView__bg-image--fill-rectangle {
+    top: 20%;
+    left: 10%;
+    width: 300px;
+  }
+  
+  .FirstView__bg-image--main-visual {
+    top: 50px;
+    right: 5%;
+    width: 45%;
+  }
+  
+  .FirstView__whole-image {
+    display: none; /* デフォルトでは非表示 */
+  }
+  
+  .FirstView__container {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+  }
+  
+  .FirstViewContent {
+    max-width: 600px;
+  }
+  
+  .FirstViewContent__title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+  
+  .FirstViewContent__badge-image {
+    width: 120px;
+    display: block;
+    margin-top: 20px;
+  }
+  
+  .FirstViewContent__button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 24px;
+    background-color: #f79214;
+    color: #fff;
+    border-radius: 25px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 16px;
+  }
+  
+  .FirstViewContent__caption {
+    font-size: 10px;
+    color: #666;
+    margin-top: 20px;
+    line-height: 1.4;
+  }
+  
+  /* スマホ対応 */
+  @media (max-width: 768px) {
+    .HeaderNavHamburger {
+      display: flex;
+    }
+  
+    .HeaderNavList {
+      position: absolute;
+      top: 80px;
+      right: 0;
+      background-color: #fff;
+      width: 200px;
+      flex-direction: column;
+      gap: 10px;
+      padding: 20px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      display: none;
+    }
+  
+    .HeaderNavList.is-active {
+      display: flex;
+    }
+  
+    .HeaderNavListItem__button {
+      width: 100%;
+      text-align: center;
+    }
+  
+    .FirstView__bg-image--main-visual {
+      position: static;
+      width: 100%;
+      margin-top: 20px;
+    }
+  
+    .FirstView__bg-image--left-rectangle,
+    .FirstView__bg-image--right-rectangle,
+    .FirstView__bg-image--fill-rectangle {
+      display: none;
+    }
+  
+    .FirstViewContent {
+      text-align: center;
+    }
+  
+    .FirstViewContent__title {
+      font-size: 22px;
+    }
+  
+    .FirstViewContent__button {
+      width: 100%;
+    }
+  
+    .FirstViewContent__badge-image {
+      margin: 20px auto 0;
+    }
+  }
+  /* ナビゲーションメニュー hover */
+.HeaderNavListItem__link:hover {
+    color: #f79214; /* オレンジ色に変化 */
+  }
+  
+  /* 無料カウンセリングボタン hover */
+  .HeaderNavListItem__button:hover {
+    background-color: #e38100; /* 少し濃いオレンジ */
+    color: #fff;
+  }
+  
+  /* ファーストビューのメインボタン hover */
+  .FirstViewContent__button:hover {
+    background-color: #e38100; /* 少し濃いオレンジ */
+    color: #fff;
+    transform: scale(1.05); /* ちょっと拡大 */
+    transition: all 0.3s ease; /* なめらかに拡大 */
+  }
+  
+  /* ハンバーガーアイコン hover */
+  .HeaderNavHamburger:hover .HeaderNavHamburger__line {
+    background-color: #f79214;
+  }
+  
