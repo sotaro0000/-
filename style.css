@@ -85,7 +85,8 @@
   .FirstView {
     position: relative;
     overflow: hidden;
-    padding: 50px 0;
+    width:100%;
+    height:100vh;
   }
   
   .FirstView__bg-image {
@@ -112,9 +113,11 @@
   }
   
   .FirstView__bg-image--main-visual {
-    top: 50px;
-    right: 5%;
-    width: 45%;
+    position:absolute;
+    height: 100%;
+    width: 100%;
+    object-fit:cover;
+    z-index:1;
   }
   
   .FirstView__whole-image {
@@ -126,7 +129,7 @@
     z-index: 2;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 5%;
+    padding: 20px;
   }
   
   .FirstViewContent {
@@ -193,11 +196,23 @@
       text-align: center;
     }
   
+    /* スマホ対応 */
+@media (max-width: 768px) {
     .FirstView__bg-image--main-visual {
-      position: static;
-      width: 100%;
-      margin-top: 20px;
+      position: absolute;   /* 画像を絶対配置 */
+      top: 0;
+      left: 0;
+      width: 100%;          /* 幅を100%に */
+      height: 100vh;        /* 高さを100vh（ビューポートの高さ）に */
+      object-fit: cover;    /* 画像の縦横比を維持しつつ、画面を覆うように */
+      z-index: 1;           /* 背景として配置 */
     }
+  
+    .FirstView__whole-image {
+      display: none;        /* 他の画像を非表示 */
+    }
+  }
+  
   
     .FirstView__bg-image--left-rectangle,
     .FirstView__bg-image--right-rectangle,
@@ -243,5 +258,114 @@
   /* ハンバーガーアイコン hover */
   .HeaderNavHamburger:hover .HeaderNavHamburger__line {
     background-color: #f79214;
+  }
+  /* ====== 共通リセット ====== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* ====== スマホ版 (〜768px) ====== */
+  @media (max-width: 768px) {
+    /* ハンバーガーメニュー表示 */
+    .HeaderNavHamburger {
+      display: flex;
+    }
+  
+    /* ナビメニュー */
+    .HeaderNavList {
+      position: absolute;
+      top: 70px;
+      right: 0;
+      width: 70%;
+      flex-direction: column;
+      background: #fff;
+      gap: 20px;
+      padding: 20px;
+      display: none;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+  
+    .HeaderNavList.is-active {
+      display: flex;
+    }
+  
+    /* ナビ内ボタン */
+    .HeaderNavListItem__button {
+      width: 100%;
+      text-align: center;
+    }
+  
+    /* ファーストビュー背景画像 */
+    .FirstView__bg-image--main-visual {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%; /* 全画面表示 */
+      object-fit: cover;
+      z-index: 1;
+    }
+  
+    /* 他の装飾背景画像は消す */
+    .FirstView__bg-image--left-rectangle,
+    .FirstView__bg-image--right-rectangle,
+    .FirstView__bg-image--fill-rectangle {
+      display: none;
+    }
+  
+    /* ファーストビュー内テキスト */
+    .FirstViewContent {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 30px 20px;
+    }
+  
+    .FirstViewContent__title {
+      font-size: 22px;
+    }
+  
+    .FirstViewContent__button {
+      width: 100%;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+  
+    .FirstViewContent__badge-image {
+      margin: 20px auto 0;
+    }
+  }
+  
+  /* ====== タブレット版 (769px〜1024px) ====== */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .potepancamp {
+      padding: 15px 5%;
+    }
+  
+    .HeaderNavList {
+      gap: 20px;
+    }
+  
+    .FirstViewContent {
+      max-width: 80%;
+      padding: 40px 20px;
+    }
+  
+    .FirstViewContent__title {
+      font-size: 26px;
+    }
+  
+    .FirstViewContent__button {
+      padding: 10px 20px;
+      font-size: 15px;
+    }
+  
+    .FirstView__bg-image--main-visual {
+      width: 55%;
+      right: 5%;
+      top: 60px;
+    }
   }
   
